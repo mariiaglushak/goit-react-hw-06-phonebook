@@ -1,6 +1,8 @@
 import { Item,ItemNumber,ItemBtnDel } from "./ContactItemStyle";
+
+
 const ContactItem = ({ id, name, number, onDeleteContact,text }) => {
-  console.log(onDeleteContact)
+
   return (
     <Item key={id}>
           {name}:<ItemNumber>{number}</ItemNumber>

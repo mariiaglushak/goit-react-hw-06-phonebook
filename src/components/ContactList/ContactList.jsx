@@ -1,31 +1,34 @@
 import { useDispatch, useSelector } from 'react-redux';
-import React, { useState } from 'react';
 import { deleteContacts } from 'redux/contacts/contacts.reducer';
 
 import ContactItem from './ContactItem';
 
 const ContactList = () => {
-  const [filter, setFilter] = useState('');
+  
+  const filter = useSelector(state=>state.filterStore.filter)
   const dispatch = useDispatch();
   const contacts = useSelector(state => state.contactsStore.contacts);
-  console.log('contacts', contacts)
+  
+
 
   const clickDeletBtn = contactId => {
    
     dispatch(deleteContacts(contactId))
    
   };
+
  
   const getContacts = () => {
-    const normalizeFilter = filter.toLowerCase();
+    const normalizeFilter = filter.toLowerCase().trim();
 
     return contacts.filter(contact =>
       contact.name.toLowerCase().includes(normalizeFilter)
     );
   
   };
+
   const contactElem = getContacts();
-  console.log('contactElem',contactElem)
+ 
 
 
 
