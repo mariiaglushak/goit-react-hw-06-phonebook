@@ -1,10 +1,22 @@
+import React, { useState } from 'react';
+
 import { LabelFilter, InputFilter } from './FilterStyle';
 
-const Filter = ({ text, value, onChange }) => {
+const Filter = ({ text }) => {
+  const [filter, setFilter] = useState('');
+
+
+  const handlerInputFilter = e => {
+    setFilter(e.currentTarget.value);
+  };
+
+
+ 
+
   return (
     <LabelFilter>
       {text}
-      <InputFilter type="text" value={value} onChange={onChange} />
+      <InputFilter type="text" value={filter} onChange={handlerInputFilter} />
     </LabelFilter>
   );
 };
