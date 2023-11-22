@@ -1,4 +1,4 @@
-import React, { useEffect,useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
 
@@ -52,11 +52,6 @@ const ContactForm = () => {
     handlerFormSubmit({ name, number });
     resetState();
   };
-
-
-  useEffect(() => {
-    localStorage.setItem('contacts', JSON.stringify(contacts));
-  }, [contacts]);
 
   
   const resetState = () => {
